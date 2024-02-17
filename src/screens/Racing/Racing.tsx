@@ -18,6 +18,7 @@ const Racing = () => {
 }
 
 const Header = styled.View`
+  gap: 32px;
   margin-top: 24px;
   margin-left: 27px;
 `
