@@ -1,22 +1,30 @@
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+
+import Racing from './src/screens/Racing/Racing'
+
+import { theme } from './src/theme/theme'
+import { ThemeProvider } from 'styled-components'
+
+import {
+  Poppins_400Regular,
+  Poppins_700Bold,
+  useFonts,
+} from '@expo-google-fonts/poppins'
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Poppins_400Regular,
+    Poppins_700Bold,
+  })
+
+  if (!fontsLoaded) {
+    return null
+  }
+
   return (
-    <View style={styles.container}>
-      <Text style={{ color: '#fff' }}>
-        Open up App.tsx to start working on your app!
-      </Text>
-      <StatusBar style='auto' />
-    </View>
+    <ThemeProvider theme={theme}>
+      <StatusBar style='light' backgroundColor='#fff' />
+      <Racing />
+    </ThemeProvider>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
