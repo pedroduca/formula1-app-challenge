@@ -83,7 +83,7 @@ const TabContaineRight = styled.TouchableOpacity<{
   border-color: ${({ theme }) => theme.color.red};
 
   border-radius: 15px;
-  border-left-width: 0px;
+
   border-bottom-width: 0px;
 
   border-top-left-radius: 0px;
