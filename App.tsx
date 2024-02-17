@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar'
 
-import Racing from './src/screens/Racing/Racing'
-
 import { theme } from './src/theme/theme'
 import { ThemeProvider } from 'styled-components'
+
+import Routes from './src/routes'
 
 import {
   Poppins_400Regular,
@@ -24,7 +24,8 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar style='light' backgroundColor='#fff' />
-      <Racing />
+
+      <Routes />
     </ThemeProvider>
   )
 }
