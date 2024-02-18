@@ -7,6 +7,7 @@ interface IContainerProps {
 
 const Container = ({ children }: IContainerProps): JSX.Element => {
   const IS_ANDROID = Platform.OS === 'android'
+
   return (
     <>
       <SafeAreaView style={{ backgroundColor: '#11100F' }} />
