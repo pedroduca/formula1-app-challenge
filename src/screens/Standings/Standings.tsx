@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import styled from 'styled-components/native'
 
 import Container from '../../components/Container'
@@ -5,6 +7,8 @@ import Tab from '../../components/Tab'
 import Card from './components/Card'
 
 import PilotoSVG from '../../assets/images/max-verstappen.svg'
+
+import { getDrivers } from '../../services/getDrivers'
 
 const Standings = () => {
   const pilotInfoMock = {
@@ -24,6 +28,18 @@ const Standings = () => {
     imageCaption: pilotInfoMock.points,
     image: pilotInfoMock.image,
   }
+
+  const getDriversData = () => {
+    getDrivers().then(drivers => {
+      drivers.map(drive => {
+        console.log('Nome piloto: ', drive.nome)
+      })
+    })
+  }
+
+  useEffect(() => {
+    getDriversData()
+  }, [])
 
   return (
     <>
