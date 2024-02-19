@@ -1,8 +1,7 @@
 import React from 'react'
 
-import { View, StyleSheet, Image } from 'react-native'
+import { View, StyleSheet, Image, Text } from 'react-native'
 import styled from 'styled-components/native'
-import { SvgProps } from 'react-native-svg'
 
 interface ICardProps {
   number: number
@@ -10,7 +9,7 @@ interface ICardProps {
   subtitle: string
   description: string
   imageCaption: string
-  image: JSX.Element
+  image: string
 }
 
 const Card = ({
@@ -37,7 +36,14 @@ const Card = ({
       </View>
 
       <View style={styles.cardRightSide}>
-        {image}
+        <Image
+          height={104}
+          width={132}
+          source={{
+            uri: image,
+          }}
+        />
+
         <View style={styles.imageSubtitleContainer}>
           <ImageCaption>{imageCaption}</ImageCaption>
         </View>
