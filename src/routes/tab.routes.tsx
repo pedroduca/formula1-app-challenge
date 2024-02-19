@@ -11,6 +11,7 @@ const { Navigator, Screen } = Tab
 export default function TabRoutes() {
   return (
     <Navigator
+      initialRouteName='Standings'
       screenOptions={{
         headerShown: false,
         tabBarStyle: { backgroundColor: '#11100F' },
@@ -22,20 +23,20 @@ export default function TabRoutes() {
         },
       }}>
       <Screen
-        name='Racing'
-        component={Racing}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <FontAwesome6 name='flag-checkered' size={24} color={color} />
-          ),
-        }}
-      />
-      <Screen
         name='Standings'
         component={Standings}
         options={{
           tabBarIcon: ({ color }) => (
             <FontAwesome6 name='ranking-star' size={24} color={color} />
+          ),
+        }}
+      />
+      <Screen
+        name='Racing'
+        component={Racing}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <FontAwesome6 name='flag-checkered' size={24} color={color} />
           ),
         }}
       />
