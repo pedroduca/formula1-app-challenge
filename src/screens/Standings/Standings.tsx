@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import styled from 'styled-components/native'
 
@@ -6,34 +6,14 @@ import Container from '../../components/Container'
 import Tab from '../../components/Tab'
 import Card from './components/Card'
 
-import PilotoSVG from '../../assets/images/max-verstappen.svg'
-
-import { getDrivers } from '../../services/getDrivers'
+import { IGetDrivers, getDrivers } from '../../services/getDrivers'
 
 const Standings = () => {
-  const pilotInfoMock = {
-    position: 1,
-    name: 'Max',
-    lastName: 'Verstappen',
-    team: 'Red Bull Racing',
-    points: '255 PTS',
-    image: <PilotoSVG />,
-  }
-
-  const cardMock = {
-    number: pilotInfoMock.position,
-    title: pilotInfoMock.name,
-    subtitle: pilotInfoMock.lastName,
-    description: pilotInfoMock.team,
-    imageCaption: pilotInfoMock.points,
-    image: pilotInfoMock.image,
-  }
+  const [drivers, setDrivers] = useState<IGetDrivers[]>([])
 
   const getDriversData = () => {
     getDrivers().then(drivers => {
-      drivers.map(drive => {
-        console.log('Nome piloto: ', drive.nome)
-      })
+      setDrivers(drivers)
     })
   }
 
@@ -50,7 +30,18 @@ const Standings = () => {
         </Header>
 
         <CardList>
-          <Card {...cardMock} />
+          {drivers &&
+            drivers.map((driver, index) => (
+              <Card
+                key={index}
+                number={index + 1}
+                title={driver.nome}
+                subtitle={driver.sobrenome}
+                description={driver.equipe}
+                image={driver.foto}
+                imageCaption={driver.pontuacao.toString()}
+              />
+            ))}
         </CardList>
       </Container>
     </>
