@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar'
+import * as SplashScreen from 'expo-splash-screen'
 
 import { theme } from './src/theme/theme'
 import { ThemeProvider } from 'styled-components'
@@ -16,6 +17,9 @@ export default function App() {
     Poppins_400Regular,
     Poppins_700Bold,
   })
+
+  SplashScreen.preventAutoHideAsync()
+  setTimeout(SplashScreen.hideAsync, 2000)
 
   if (!fontsLoaded) {
     return null
