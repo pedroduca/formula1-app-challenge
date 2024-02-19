@@ -60,24 +60,23 @@ const CardContainer = styled.View`
 
 const H1 = styled.Text`
   color: #fff;
-  font-size: 20;
+  font-size: 20px;
   font-family: Poppins_700Bold;
-  line-height: 25;
-  letter-spacing: 0.34;
+  line-height: 25px;
 `
 
 const H2 = styled.Text`
   color: #fff;
-  font-size: 16;
+  font-size: 16px;
   font-family: Poppins_700Bold;
-  line-height: 21;
+  line-height: 21px;
 `
 
 const Subtitle = styled.Text`
   color: #cccdd7;
-  font-size: 11;
+  font-size: 11px;
   font-family: Poppins_400Regular;
-  line-height: 13;
+  line-height: 13px;
 `
 
 const ImageCaption = styled(H1)`
